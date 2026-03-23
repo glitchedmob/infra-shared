@@ -12,7 +12,7 @@ Generates an ED25519 SSH key pair and stores it in AWS SSM Parameter Store.
 
 ```hcl
 module "ssh_key" {
-  source               = "git::https://github.com/glitchedmob/infra-shared.git//tf/modules/ssh-key?ref=v1.0.0"
+  source               = "git::https://github.com/glitchedmob/infra-shared.git//src/tf/modules/ssh-key?ref=v1.0.0"
   name                 = "my-host"
   ssm_private_key_path = "/homelab/my-host/ssh-private-key"
 }

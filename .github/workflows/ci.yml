@@ -3,13 +3,13 @@ name: CI
 on:
   pull_request:
     paths:
-      - tf/**
+      - src/tf/**
       - .github/workflows/**
   push:
     branches:
       - main
     paths:
-      - tf/**
+      - src/tf/**
       - .github/workflows/**
 
 permissions:
@@ -22,12 +22,12 @@ jobs:
       - uses: actions/checkout@v6
       - uses: opentofu/setup-opentofu@v1
         with:
-          tofu_version_file: tf/.tofu-version
+          tofu_version_file: src/tf/.tofu-version
       - name: Format check
-        run: tofu fmt -check -recursive tf/
+        run: tofu fmt -check -recursive src/tf/
       - name: Validate modules
         run: |
-          for dir in tf/modules/*/; do
+          for dir in src/tf/modules/*/; do
             echo "Validating $dir"
             cd "$dir" && tofu init -backend=false && tofu validate && cd -
           done

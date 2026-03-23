@@ -1,6 +1,6 @@
 .PHONY: help tf-format tf-lint-fix tf-validate
 
-TF_DIR := tf
+TF_DIR := src/tf
 
 help:
 	@echo "Module commands:"
