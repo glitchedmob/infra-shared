@@ -2,6 +2,10 @@
 
 Shared Terraform modules for glitchedmob infrastructure. Referenced via `git::` source by other repos - not deployed directly.
 
+## Scope
+
+- **Terraform modules (`src/tf/modules`)**: reusable building blocks consumed by other infrastructure repositories.
+
 ## Modules
 
 ### ssh-key
@@ -35,11 +39,13 @@ module "ssh_key" {
 | `ssm_path` | The SSM parameter path for the private key |
 | `ssm_public_key_path` | The SSM parameter path for the public key |
 
-## Commands
+## Usage
+
+### Module Validation and Formatting
 
 ```bash
-make help          # List available commands
-make tf-format     # Check formatting
-make tf-lint-fix   # Fix formatting
-make tf-validate   # Validate all modules
+make help
+make tf-format
+make tf-lint-fix
+make tf-validate
 ```
