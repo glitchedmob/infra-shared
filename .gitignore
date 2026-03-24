@@ -5,3 +5,4 @@
 .tfplan
 *.log
 .terraform/
+.terraform.lock.hcl

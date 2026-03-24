@@ -17,7 +17,7 @@ module "k3s_node_01" {
 
   name            = "sgfdevs-k3s-01"
   description     = "Managed by OpenTofu"
-  tags            = ["managed-by-tofu", "sgfdevs", "k3s"]
+  tags            = ["tf", "sgfdevs", "k3s"]
   node_name       = "x86-node-01"
   pool_id         = "sgfdevs"
   os_id           = "debian13"
@@ -53,7 +53,7 @@ Required:
 Optional:
 
 - `description`
-- `tags`
+- `tags` (normalized by module: trimmed, deduplicated, sorted)
 - `cpu_type` (default: `x86-64-v2-AES`)
 - `ipv4_gateway` (default: first host in `network_cidr`)
 - `dns_domain` (default: `local`)

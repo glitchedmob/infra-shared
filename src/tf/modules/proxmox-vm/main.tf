@@ -18,6 +18,7 @@ locals {
   )
 
   effective_ssh_public_keys = [for key in var.ssh_public_keys : trimspace(key)]
+  effective_tags            = sort(distinct([for tag in var.tags : trimspace(tag) if trimspace(tag) != ""]))
   effective_ipv4_prefix     = tonumber(split("/", var.network_cidr)[1])
   effective_ipv4_gateway    = coalesce(var.ipv4_gateway, cidrhost(var.network_cidr, 1))
   effective_dns_servers     = length(var.dns_servers) > 0 ? var.dns_servers : [local.effective_ipv4_gateway]
@@ -26,7 +27,7 @@ locals {
 resource "proxmox_virtual_environment_vm" "this" {
   name        = var.name
   description = var.description
-  tags        = var.tags
+  tags        = local.effective_tags
   node_name   = var.node_name
   pool_id     = var.pool_id
 
