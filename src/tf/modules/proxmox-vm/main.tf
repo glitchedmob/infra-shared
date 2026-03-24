@@ -1,6 +1,6 @@
 locals {
   os_disk_datastore_id    = "vmdata"
-  cloud_init_datastore_id = "local"
+  cloud_init_datastore_id = "vmdata"
 
   os_catalog = {
     debian13 = {

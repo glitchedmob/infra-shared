@@ -7,7 +7,7 @@ When `enable_guest_agent = true`, the module automatically applies a module-mana
 The module uses fixed datastore IDs:
 
 - OS disk datastore: `vmdata`
-- cloud-init datastore: `local`
+- cloud-init datastore: `vmdata`
 
 ## Usage
 
