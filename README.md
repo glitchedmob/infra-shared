@@ -1,17 +1,23 @@
 # infra-shared
 
-Shared Terraform modules for glitchedmob infrastructure. This repository is consumed by other repos via `git::` module sources and is not applied directly.
+Holds reusable OpenTofu modules shared by other LZ and SGFDEVS infrastructure repositories.
 
-## Modules
+## Scope
+- Owns: reusable module implementations for common infrastructure patterns.
+- Owns: module-level validation and formatting workflow.
 
-- `proxmox-vm`: create one Proxmox VM with opinionated defaults and `os_id`-based image/snippet selection. See `src/tf/modules/proxmox-vm/README.md`.
-- `ssh-key`: generate an ED25519 SSH key pair and store it in SSM Parameter Store. See `src/tf/modules/ssh-key/README.md`.
+## Structure
+- `src/tf/modules/proxmox-vm/`: Proxmox VM module with opinionated VM defaults.
+- `src/tf/modules/ssh-key/`: SSH key generation and SSM storage module.
+- `.github/workflows/`: Module validation and formatting checks.
 
-## Development
+## Run
 
 ```bash
 make help
 make tf-format
-make tf-lint-fix
 make tf-validate
 ```
+
+## Operating constraints
+- This repo is a module library and is not applied as an environment stack.
