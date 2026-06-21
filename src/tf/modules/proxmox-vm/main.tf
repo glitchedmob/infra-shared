@@ -4,7 +4,7 @@ locals {
 
   os_catalog = {
     debian13 = {
-      import_from                = "local:import/debian-13-generic-amd64.qcow2"
+      import_from                = "local:import/debian-13-genericcloud-amd64.qcow2"
       operating_system_type      = "l26"
       guest_agent_vendor_data_id = "local:snippets/guest-agent-vendor-data-v1.yaml"
     }
