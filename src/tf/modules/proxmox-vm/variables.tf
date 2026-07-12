@@ -71,6 +71,26 @@ variable "disk_size_gb" {
   }
 }
 
+variable "data_disks" {
+  description = "Persistent disks owned by proxmox-data-owner modules, keyed by consumer interface (scsi1 through scsi30)"
+  type = map(object({
+    datastore_id      = string
+    path_in_datastore = string
+    file_format       = string
+    size              = number
+    serial            = string
+  }))
+  default = {}
+
+  validation {
+    condition = alltrue([
+      for interface in keys(var.data_disks) :
+      can(regex("^scsi([1-9]|[12][0-9]|30)$", interface))
+    ])
+    error_message = "data_disks keys must be scsi1 through scsi30; scsi0 is reserved for the OS disk."
+  }
+}
+
 variable "network_bridge" {
   description = "Proxmox network bridge"
   type        = string

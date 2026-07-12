@@ -60,6 +60,7 @@ Optional:
 - `dns_servers` (default: `[ipv4_gateway]`)
 - `enable_guest_agent` (default: `true`)
 - `vendor_data_file_id`
+- `data_disks` (map of `proxmox-data-owner` module `disk` outputs keyed by `scsi1` through `scsi30`)
 
 ## Outputs
 
