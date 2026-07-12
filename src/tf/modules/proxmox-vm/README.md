@@ -47,6 +47,7 @@ Required:
 - `network_bridge`
 - `network_cidr`
 - `ipv4_address`
+- `data_disks` (attached persistent data disks keyed by serial, including each consumer interface)
 - `vm_user`
 - `ssh_public_keys`
 
